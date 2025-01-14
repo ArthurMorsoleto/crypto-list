@@ -11,9 +11,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.amb.cryptolist.view.ui.ViewModelModule.bindViewModel
 import com.amb.cryptolist.view.ui.theme.CryptoListTheme
 
 class MainActivity : ComponentActivity() {
+
+    private val viewModel by lazy { bindViewModel(viewModelStore) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
