@@ -1,20 +1,21 @@
 package com.amb.cryptolist.view.ui
 
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.amb.cryptolist.common.Response
 import com.amb.cryptolist.domain.usecase.GetCoinsUseCase
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class MainActivityViewModel(
     private val getCoinsUseCase: GetCoinsUseCase
 ) : ViewModel() {
 
-    private var _state = mutableStateOf(ViewState())
-    val state: State<ViewState> = _state
+    private var _viewState = MutableStateFlow(ViewState())
+    val viewState = _viewState.asStateFlow()
 
     init {
         getCoins()
@@ -22,17 +23,19 @@ class MainActivityViewModel(
 
     private fun getCoins() {
         viewModelScope.launch {
-            _state.value = ViewState(isLoading = true)
+            _viewState.update { it.copy(isLoading = true) }
+
             when (val response = getCoinsUseCase()) {
                 is Response.Success -> {
-                    _state.value = ViewState(
-                        coins = response.data ?: emptyList(),
-                        isLoading = false
-                    )
+                    _viewState.update {
+                        it.copy(
+                            coins = response.data ?: emptyList(), isLoading = false
+                        )
+                    }
                 }
 
                 is Response.Error -> {
-                    _state.value = ViewState(error = response.error, isLoading = false)
+                    _viewState.update { it.copy(error = response.error?.localizedMessage, isLoading = false) }
                 }
             }
         }
