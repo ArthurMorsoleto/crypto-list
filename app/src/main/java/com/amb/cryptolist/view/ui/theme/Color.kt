@@ -1,4 +1,4 @@
-package com.amb.cryptolist.ui.theme
+package com.amb.cryptolist.view.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

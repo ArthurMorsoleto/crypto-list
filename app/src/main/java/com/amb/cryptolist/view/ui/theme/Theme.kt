@@ -1,4 +1,4 @@
-package com.amb.cryptolist.ui.theme
+package com.amb.cryptolist.view.ui.theme
 
 import android.app.Activity
 import android.os.Build
