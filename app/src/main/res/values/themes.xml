@@ -2,4 +2,5 @@
 <resources>
 
     <style name="Theme.CryptoList" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.CryptoDetail" parent="Theme.AppCompat.Light.NoActionBar" />
 </resources>

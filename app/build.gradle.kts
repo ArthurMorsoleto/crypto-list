@@ -59,6 +59,10 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
 
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
@@ -74,4 +78,7 @@ dependencies {
     implementation(project(":network"))
     implementation(libs.retrofit)
     implementation(libs.gson)
+
+    // glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }
