@@ -19,7 +19,7 @@ data class CryptoCoinResponse(
     @SerializedName("type")
     val type: String
 ) {
-    fun CryptoCoinResponse.toCryptoCoin(): CryptoCoin {
+    fun toCryptoCoin(): CryptoCoin {
         return CryptoCoin(
             id = id,
             name = name,
