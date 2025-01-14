@@ -1,5 +1,6 @@
 package com.amb.cryptolist.data.response
 
+import com.amb.cryptolist.domain.model.CryptoCoin
 import com.google.gson.annotations.SerializedName
 
 data class CryptoCoinResponse(
@@ -17,4 +18,12 @@ data class CryptoCoinResponse(
     val symbol: String,
     @SerializedName("type")
     val type: String
-)
+) {
+    fun CryptoCoinResponse.toCryptoCoin(): CryptoCoin {
+        return CryptoCoin(
+            id = id,
+            name = name,
+            symbol = symbol
+        )
+    }
+}

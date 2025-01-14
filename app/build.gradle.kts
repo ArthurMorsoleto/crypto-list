@@ -69,6 +69,7 @@ dependencies {
 
     // network
     implementation(project(":network"))
+    implementation(libs.retrofit)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.gson)
 }

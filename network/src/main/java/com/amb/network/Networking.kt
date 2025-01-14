@@ -14,9 +14,3 @@ object Networking {
             .build()
     }
 }
-
-object ApiClient {
-    val service: Api by lazy {
-        Networking.retrofit.create(Api::class.java)
-    }
-}
