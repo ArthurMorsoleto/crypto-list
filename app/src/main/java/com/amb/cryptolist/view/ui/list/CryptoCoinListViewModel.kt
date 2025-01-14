@@ -1,4 +1,4 @@
-package com.amb.cryptolist.view.ui
+package com.amb.cryptolist.view.ui.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class MainActivityViewModel(
+class CryptoCoinListViewModel(
     private val getCoinsUseCase: GetCoinsUseCase
 ) : ViewModel() {
 
@@ -44,7 +44,7 @@ class MainActivityViewModel(
     companion object {
         val Factory = object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return MainActivityViewModel(
+                return CryptoCoinListViewModel(
                     getCoinsUseCase = GetCoinsUseCase()
                 ) as T
             }

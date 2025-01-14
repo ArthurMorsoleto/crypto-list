@@ -1,4 +1,4 @@
-package com.amb.cryptolist.view.ui
+package com.amb.cryptolist.view.ui.list
 
 import com.amb.cryptolist.domain.model.CryptoCoin
 

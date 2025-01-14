@@ -15,7 +15,7 @@
         android:theme="@style/Theme.CryptoList"
         tools:targetApi="31">
         <activity
-            android:name=".view.ui.MainActivity"
+            android:name=".view.ui.list.CryptoCoinListActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.CryptoList">

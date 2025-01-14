@@ -1,4 +1,4 @@
-package com.amb.cryptolist.view.ui
+package com.amb.cryptolist.view.ui.list
 
 import android.os.Bundle
 import android.widget.Toast
@@ -23,7 +23,7 @@ import com.amb.cryptolist.view.ui.ViewModelModule.bindViewModel
 import com.amb.cryptolist.view.ui.components.CryptoCoinItem
 import com.amb.cryptolist.view.ui.theme.CryptoListTheme
 
-class MainActivity : ComponentActivity() {
+class CryptoCoinListActivity : ComponentActivity() {
 
     private val viewModel by lazy { bindViewModel(viewModelStore) }
 
@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
                             CryptoCoinItem(
                                 coin = coin,
                                 onItemClick = {
-                                    Toast.makeText(this@MainActivity, coin.name, Toast.LENGTH_SHORT)
+                                    Toast.makeText(this@CryptoCoinListActivity, coin.name, Toast.LENGTH_SHORT)
                                         .show()
                                 }
                             )
