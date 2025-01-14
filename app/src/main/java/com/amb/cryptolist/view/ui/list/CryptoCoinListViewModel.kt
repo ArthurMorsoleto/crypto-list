@@ -35,7 +35,12 @@ class CryptoCoinListViewModel(
                 }
 
                 is Response.Error -> {
-                    _viewState.update { it.copy(error = response.error?.localizedMessage, isLoading = false) }
+                    _viewState.update {
+                        it.copy(
+                            error = response.error?.localizedMessage,
+                            isLoading = false
+                        )
+                    }
                 }
             }
         }

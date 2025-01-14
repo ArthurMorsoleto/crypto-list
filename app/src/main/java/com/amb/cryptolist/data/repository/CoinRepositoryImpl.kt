@@ -2,6 +2,7 @@ package com.amb.cryptolist.data.repository
 
 import com.amb.cryptolist.data.Api
 import com.amb.cryptolist.data.ApiClient
+import com.amb.cryptolist.data.response.CryptoCoinDetailResponse
 import com.amb.cryptolist.data.response.CryptoCoinResponse
 import com.amb.cryptolist.domain.repository.CoinRepository
 
@@ -11,5 +12,9 @@ class CoinRepositoryImpl(
 
     override suspend fun getCoins(): List<CryptoCoinResponse> {
         return api.getCoins()
+    }
+
+    override suspend fun getCoinDetail(coinId: String): CryptoCoinDetailResponse {
+        return api.getCoinDetail(coinId)
     }
 }

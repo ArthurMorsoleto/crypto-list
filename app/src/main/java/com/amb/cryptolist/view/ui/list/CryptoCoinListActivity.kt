@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.amb.cryptolist.view.ui.Router
 import com.amb.cryptolist.view.ui.ViewModelModule.bindViewModel
 import com.amb.cryptolist.view.ui.components.CryptoCoinItem
 import com.amb.cryptolist.view.ui.theme.CryptoListTheme
@@ -38,8 +39,10 @@ class CryptoCoinListActivity : ComponentActivity() {
                             CryptoCoinItem(
                                 coin = coin,
                                 onItemClick = {
-                                    Toast.makeText(this@CryptoCoinListActivity, coin.name, Toast.LENGTH_SHORT)
-                                        .show()
+                                    Router.openDetailScreen(
+                                        context = this@CryptoCoinListActivity,
+                                        coinId = coin.id
+                                    )
                                 }
                             )
                         }
